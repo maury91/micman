@@ -1,21 +1,30 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import { createRouter } from '../utils/Router.tsx';
 import { mapRoutes } from '../utils/mapRoutes.tsx';
 import { CounterContextProvider } from '../utils/CounterContext.tsx';
 
-const { routeContext, Router } = createRouter()
+const {routeContext, Router} = createRouter()
+const {routeContext: sectionContext, Router: Sections} = createRouter()
 
 
 ReactDOM.createRoot(document.createElement('div')).render(
-  <React.StrictMode>
-    <CounterContextProvider>
-      <Router />
-    </CounterContextProvider>
-  </React.StrictMode>,
+  <CounterContextProvider>
+    <Router/>
+    <Sections />
+  </CounterContextProvider>
 )
 
-window.registerRoutes(mapRoutes(routeContext, {
-  '/appA': App
-}))
+
+const AppOneLogo = () => {
+  return <span>App one logo</span>
+}
+
+window.registerMicrofrontend({
+  routes: mapRoutes(routeContext, {
+    '/appA': App
+  }),
+  sections: mapRoutes(sectionContext, {
+    'AdditionalLogo': AppOneLogo
+  })
+})

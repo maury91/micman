@@ -1,5 +1,5 @@
 import { PubSub } from './PubSub.ts';
-import { useSyncExternalStore } from 'react';
+import React, { useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 
 export type RouteContext = PubSub<{
@@ -7,7 +7,7 @@ export type RouteContext = PubSub<{
   route: null
 } | {
   element: HTMLElement,
-  route: JSX.Element,
+  route: React.JSX.Element,
 }>
 
 export const createRouter = () => {
@@ -16,7 +16,7 @@ export const createRouter = () => {
     route: null
   } | {
     element: HTMLElement,
-    route: JSX.Element,
+    route: React.JSX.Element,
   }>({
     element: null,
     route: null,

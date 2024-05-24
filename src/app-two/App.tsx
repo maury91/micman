@@ -2,6 +2,9 @@ import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { useCounterContext } from '../utils/CounterContext.tsx';
+import { createSectionPlaceholder } from '../utils/createSectionPlaceholder.tsx';
+
+const AdditionalLogo = createSectionPlaceholder('AdditionalLogo');
 
 function App() {
   const { count, setCount } = useCounterContext();
@@ -27,6 +30,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
+        <AdditionalLogo />
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more

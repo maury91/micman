@@ -2,6 +2,9 @@ import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { useCounterContext } from '../utils/CounterContext.tsx';
+import { createSectionPlaceholder } from '../utils/createSectionPlaceholder.tsx';
+
+const AdditionalLogo = createSectionPlaceholder('AdditionalLogo');
 
 function App() {
   const { count, setCount } = useCounterContext();
@@ -14,6 +17,7 @@ function App() {
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
+        <AdditionalLogo />
       </div>
       <h1>Hello I'm App A</h1>
       <div className="card">
@@ -22,6 +26,9 @@ function App() {
         </button>
         <button onClick={() => window.navigate('/appB')}>
           Go to App two
+        </button>
+        <button onClick={() => window.navigate('/appC')}>
+          Go to App three
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
